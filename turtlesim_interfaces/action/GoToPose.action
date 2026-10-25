@@ -1,0 +1,14 @@
+# Goal
+turtlesim_interfaces/TargetPose target_pose
+---
+# Result
+bool success
+float32 final_x
+float32 final_y
+float32 final_yaw
+string message
+---
+# Feedback
+float32 distance_to_goal
+float32 yaw_error
+string phase

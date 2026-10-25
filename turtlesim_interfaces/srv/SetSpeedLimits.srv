@@ -1,0 +1,7 @@
+# Request
+float32 max_linear_speed
+float32 max_angular_speed
+---
+# Response
+bool success
+string message

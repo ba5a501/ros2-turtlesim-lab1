@@ -1,0 +1,11 @@
+# Goal: side length in metres (0 = use the server's default_side_length parameter)
+float32 side_length
+---
+# Result
+bool success
+int32 goals_sent
+string message
+---
+# Feedback
+int32 current_side
+float32 distance_to_corner

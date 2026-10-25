@@ -1,0 +1,19 @@
+# Speed limits are passed from the launch file (launch arguments).
+# Everything else is configured here.
+pose_action_server:
+  ros__parameters:
+    control_rate: 30.0
+
+reset_service_node:
+  ros__parameters:
+    home_x: 5.544445
+    home_y: 5.544445
+    home_theta: 0.0
+    pen_r: 179
+    pen_g: 184
+    pen_b: 255
+    pen_width: 3
+
+square_action_server:
+  ros__parameters:
+    default_side_length: 4.0
