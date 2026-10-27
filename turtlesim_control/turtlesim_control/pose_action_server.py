@@ -63,9 +63,9 @@ class GoToPoseActionServer(Node):
                 except (TypeError, ValueError):
                     return SetParametersResult(successful=False,
                                                reason=f'{p.name} must be a number')
-                if value <= 0.0:
+                if not math.isfinite(value) or value <= 0.0:
                     return SetParametersResult(successful=False,
-                                               reason=f'{p.name} must be > 0')
+                                               reason=f'{p.name} must be finite and > 0')
         return SetParametersResult(successful=True)
 
     def _limits(self):
@@ -103,6 +103,8 @@ class GoToPoseActionServer(Node):
     # ------------------------------------------------------------ action
     def _on_goal(self, goal_request):
         t = goal_request.target_pose
+        if not all(math.isfinite(v) for v in (t.x, t.y, t.yaw)):
+            return GoalResponse.REJECT
         if not (WORLD_MIN <= t.x <= WORLD_MAX and WORLD_MIN <= t.y <= WORLD_MAX):
             self.get_logger().warn(f'Rejected goal ({t.x:.2f}, {t.y:.2f}): outside 0..11')
             return GoalResponse.REJECT
