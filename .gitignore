@@ -4,3 +4,7 @@ log/
 __pycache__/
 *.pyc
 *.db3
+*.mcap
+.pytest_cache/
+*.egg-info/
+bags/
